@@ -113,7 +113,7 @@ Puppet::Reports.register_report(:coscale) do
 
       data = {'message' => message,
               'timestamp' => timestamp,
-              'subject' => 'subject',
+              'subject' => 'a',
               }
 
       headers = {'HTTPAuthorization' => @cs_HTTPAuthorizationToken}
