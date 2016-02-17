@@ -1,7 +1,7 @@
 #PUPPET REPORT MODULE FOR COSCALE API
 #
 #Note that in puppet, all modules run in the same scope,
-#so names can overlap and then problem ! 
+#so names can overlap and then problem !
 #
 # TO INSTALL :
 # find out libdir
@@ -11,7 +11,7 @@
 # $ sudo mkdir -p /var/lib/puppet/lib/puppet/reports
 # put coscale.rb in there
 # add report module to config /etc/puppet/puppet.conf
-# example : 
+# example :
 # reports = store,coscale
 #
 
@@ -85,7 +85,8 @@ Puppet::Reports.register_report(:coscale) do
       data = {'name'        => name,
               'description' => '',
               'type'        => '',
-              'source'      => 'Puppet'}
+              'source'      => 'Puppet',
+              'icon'        => 'puppet'}
       headers = {'HTTPAuthorization' => @cs_HTTPAuthorizationToken}
 
       uri = URI.parse(url)
@@ -170,7 +171,7 @@ Puppet::Reports.register_report(:coscale) do
           if err.code == '401'
             @cs_HTTPAuthorizationToken = _login(@cs_accesstoken, @cs_baseurl + 'login/')
             err = _eventdatapush(event_message, timestamp, url=url)
-          end 
+          end
           if err.code != '200'
             Puppet.debug "Error : [" + err.body + "]"
             return
