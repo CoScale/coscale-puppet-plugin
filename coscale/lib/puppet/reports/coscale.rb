@@ -85,7 +85,7 @@ Puppet::Reports.register_report(:coscale) do
       data = {'name'        => name,
               'description' => '',
               'type'        => '',
-              'source'      => 'Puppet',
+              'source'      => 'PUPPET',
               'icon'        => 'puppet'}
       headers = {'HTTPAuthorization' => @cs_HTTPAuthorizationToken}
 
